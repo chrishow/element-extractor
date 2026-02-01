@@ -1,0 +1,26 @@
+#clone-element-widget {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 20px;
+    background: #1e293b;
+    color: white;
+    font-family: system-ui;
+    font-size: 16px;
+    z-index: 999999;
+
+    h3 {
+        font-family: system-ui;
+        text-transform: none;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        margin-block: 10px;
+    }
+}
+
+
+.clone-element-highlighted {
+    outline: 2px solid red;
+}
