@@ -4,11 +4,197 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>clone-element</title>
+    <title>Component Extractor - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            background: #f8fafc;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #0f172a;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        .alert {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .alert-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert-text {
+            color: #1e3a8a;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .feature-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #10b981;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app"></div>
+    <div class="container">
+        <h1>Component Extractor Demo</h1>
+        <p class="subtitle">Try extracting any component from this page! Click "Select Element" in the extractor widget.
+        </p>
+
+        <div class="alert">
+            <div class="alert-title">🎯 How to use</div>
+            <div class="alert-text">
+                1. Click "Select Element" in the widget<br>
+                2. Hover over any element on this page<br>
+                3. Click to select it<br>
+                4. View and copy the HTML and CSS!
+            </div>
+        </div>
+
+        <div class="feature-box">
+            <h2>Premium Features <span class="badge">NEW</span></h2>
+            <ul class="feature-list">
+                <li>Extract HTML markup instantly</li>
+                <li>Get computed CSS styles</li>
+                <li>Copy code with one click</li>
+                <li>Works on any website</li>
+            </ul>
+        </div>
+
+        <div class="demo-grid">
+            <div class="card">
+                <h3>Card Component</h3>
+                <p>This is a sample card component with hover effects and beautiful styling. Try extracting it!</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <h3>Another Card</h3>
+                <p>Each card has its own content and structure. Select any component to see its markup and styles.</p>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+
+            <div class="card">
+                <h3>Third Card</h3>
+                <p>The extractor captures computed styles, so you get exactly what you see on screen.</p>
+                <a href="#" class="btn">Explore</a>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
 </body>
 
