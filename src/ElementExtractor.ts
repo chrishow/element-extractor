@@ -181,10 +181,10 @@ class ElementExtractor {
         if (!this.selectedElement) return;
 
         // Extract HTML
-        const html = this.extractHTML(this.selectedElement);
+        this.extractHTML(this.selectedElement);
 
         // Extract CSS
-        const css = this.extractCSS(this.selectedElement);
+        this.extractCSS(this.selectedElement);
 
         // Show extracted content
         this.extractedContent!.style.display = 'block';

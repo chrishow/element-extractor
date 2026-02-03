@@ -9,7 +9,7 @@ const elementExtractor = new ElementExtractor();
 
 // HMR Support - Accept updates without full page reload
 if (import.meta.hot) {
-    import.meta.hot.accept((newModule) => {
+    import.meta.hot.accept(() => {
         // console.log('HMR: Module updated, re-running client code...');
         // The module will automatically re-execute when accepted
     });
