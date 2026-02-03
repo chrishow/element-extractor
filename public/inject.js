@@ -24,15 +24,18 @@
     if (scriptUrl) {
         // Extract the base URL (everything before /inject.js)
         const url = new URL(scriptUrl);
-        BASE_URL = url.origin;
+        BASE_URL = url.origin + url.pathname.replace('/inject.js', '');
     }
 
     console.log('Component Extractor loading from:', BASE_URL);
 
+    // Check if we're loading from production (built assets) or dev
+    const isProduction = !BASE_URL.includes('localhost');
+
     // Inject CSS
     const cssLink = document.createElement('link');
     cssLink.rel = 'stylesheet';
-    cssLink.href = BASE_URL + '/src/style.css';
+    cssLink.href = BASE_URL + (isProduction ? '/assets/index.css' : '/src/style.css');
     cssLink.id = 'clone-element-styles';
     document.head.appendChild(cssLink);
 
@@ -40,15 +43,29 @@
     const script = document.createElement('script');
     script.type = 'module';
     script.id = 'clone-element-main-script';
-    script.textContent = `
-        import ElementExtractor from '${BASE_URL}/src/ElementExtractor.ts';
-        import '${BASE_URL}/src/style.css';
-        
-        // Make globally available
-        window.CloneElementExtractor = ElementExtractor;
-        
-        // Create instance
-        new ElementExtractor();
-    `;
-    document.head.appendChild(script);
+    
+    if (isProduction) {
+        // In production, load the compiled bundle
+        script.src = BASE_URL + '/assets/index.js';
+        script.onload = function() {
+            // After loading, initialize the extractor
+            if (window.CloneElementExtractor) {
+                new window.CloneElementExtractor();
+            }
+        };
+        document.head.appendChild(script);
+    } else {
+        // In development, use module imports
+        script.textContent = `
+            import ElementExtractor from '${BASE_URL}/src/ElementExtractor.ts';
+            import '${BASE_URL}/src/style.css';
+            
+            // Make globally available
+            window.CloneElementExtractor = ElementExtractor;
+            
+            // Create instance
+            new ElementExtractor();
+        `;
+        document.head.appendChild(script);
+    }
 })();

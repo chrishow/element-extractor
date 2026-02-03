@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: './', // Use relative paths for GitHub Pages
+    base: '/element-extractor/', // GitHub Pages repo name
     plugins: [
         // ... other plugins if you have any
     ],
@@ -15,10 +15,14 @@ export default defineConfig({
         // host: '0.0.0.0', // Optional
     },
     build: {
-        // Ensure inject.js is copied to dist
         rollupOptions: {
             input: {
                 main: './index.html',
+            },
+            output: {
+                entryFileNames: 'assets/[name].js',
+                chunkFileNames: 'assets/[name].js',
+                assetFileNames: 'assets/[name].[ext]'
             }
         }
     }
