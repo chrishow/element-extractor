@@ -145,6 +145,71 @@
             font-size: 0.875rem;
             font-weight: 500;
         }
+
+        .bookmarklet-section {
+            background: #fff;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .bookmarklet-section h2 {
+            color: #0f172a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bookmarklet-section p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .bookmarklet-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            cursor: move;
+        }
+
+        .bookmarklet-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .drag-icon {
+            font-size: 1.5rem;
+        }
+
+        .install-steps {
+            margin-top: 1.5rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .install-steps ol {
+            margin-left: 20px;
+            color: #475569;
+        }
+
+        .install-steps li {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 
@@ -153,6 +218,50 @@
         <h1>Component Extractor Demo</h1>
         <p class="subtitle">Try extracting any component from this page! Click "Select Element" in the extractor widget.
         </p>
+
+        <div class="bookmarklet-section">
+            <h2>📌 Install as Bookmarklet</h2>
+            <p>Drag this button to your bookmarks bar to use the Component Extractor on any website!</p>
+
+            <!-- Development Bookmarklet (localhost) -->
+            <div style="margin-bottom: 20px;">
+                <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;">Development (localhost:5173):</p>
+                <a href="javascript:(function(){const e=document.getElementById('clone-element-widget');if(e&&e.remove(),window.CloneElementExtractor)return void new window.CloneElementExtractor;const t=document.createElement('script');t.src='http://localhost:5173/inject.js',t.id='clone-element-injector',document.head.appendChild(t)})();"
+                    class="bookmarklet-link" style="font-size: 1rem; padding: 12px 24px;"
+                    onclick="alert('Drag this link to your bookmarks bar!'); return false;">
+                    <span class="drag-icon">⬆️</span>
+                    Component Extractor (Dev)
+                </a>
+            </div>
+
+            <!-- Production Bookmarklet (GitHub Pages) -->
+            <div>
+                <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;">Production (GitHub Pages) - Update
+                    username:</p>
+                <a href="javascript:(function(){const e=document.getElementById('clone-element-widget');if(e&&e.remove(),window.CloneElementExtractor)return void new window.CloneElementExtractor;const t=document.createElement('script');t.src='https://YOUR-USERNAME.github.io/clone-element/inject.js',t.id='clone-element-injector',document.head.appendChild(t)})();"
+                    class="bookmarklet-link"
+                    onclick="alert('Update YOUR-USERNAME in the URL before using! Then drag to your bookmarks bar.'); return false;">
+                    <span class="drag-icon">⬆️</span>
+                    Component Extractor (Production)
+                </a>
+            </div>
+
+            <div class="install-steps">
+                <strong>How to install:</strong>
+                <ol>
+                    <li><strong>For Development:</strong> Use the first button above</li>
+                    <li><strong>For Production:</strong> Edit the second button's href to replace
+                        <code>YOUR-USERNAME</code> with your GitHub username, then drag it</li>
+                    <li>Visit any website you want to extract components from</li>
+                    <li>Click the bookmark to launch the extractor</li>
+                    <li>Click again to relaunch if you've closed it</li>
+                </ol>
+                <p style="margin-top: 12px; padding: 12px; background: #fef3c7; border-radius: 6px; color: #92400e;">
+                    <strong>📝 Note:</strong> After deploying to GitHub Pages, update YOUR-USERNAME in the production
+                    bookmarklet URL.
+                </p>
+            </div>
+        </div>
 
         <div class="alert">
             <div class="alert-title">🎯 How to use</div>

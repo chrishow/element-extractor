@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: './', // Use relative paths for GitHub Pages
     plugins: [
         // ... other plugins if you have any
     ],
@@ -13,4 +14,12 @@ export default defineConfig({
         cors: true,
         // host: '0.0.0.0', // Optional
     },
+    build: {
+        // Ensure inject.js is copied to dist
+        rollupOptions: {
+            input: {
+                main: './index.html',
+            }
+        }
+    }
 });

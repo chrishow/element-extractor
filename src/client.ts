@@ -3,6 +3,8 @@ import ElementExtractor from "./ElementExtractor";
 
 console.log('Client module loaded');
 
+// Make it globally accessible for bookmarklet
+(window as any).CloneElementExtractor = ElementExtractor;
 
 const elementExtractor = new ElementExtractor();
 
