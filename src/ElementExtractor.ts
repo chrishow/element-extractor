@@ -349,11 +349,13 @@ class ElementExtractor {
                     if (rule instanceof CSSStyleRule) {
                         const selectorText = rule.selectorText;
 
-                        // Check if it's a pseudo-class rule (hover, focus, active, etc.)
+                        // Check if it's a pseudo-class (:hover, :focus, etc.) or pseudo-element (::before, ::after, etc.)
                         if (selectorText && (selectorText.includes(':hover') || selectorText.includes(':focus') ||
-                            selectorText.includes(':active') || selectorText.includes(':visited'))) {
+                            selectorText.includes(':active') || selectorText.includes(':visited') ||
+                            selectorText.includes('::before') || selectorText.includes('::after') ||
+                            selectorText.includes('::first-line') || selectorText.includes('::first-letter'))) {
 
-                            // Extract the base selector (without pseudo-class)
+                            // Extract the base selector (without pseudo-class/element)
                             const baseSelector = selectorText.split(':')[0].trim();
 
                             // Check if any of our elements match this base selector
