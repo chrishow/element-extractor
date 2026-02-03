@@ -35,7 +35,7 @@
     // Inject CSS
     const cssLink = document.createElement('link');
     cssLink.rel = 'stylesheet';
-    cssLink.href = BASE_URL + (isProduction ? '/assets/index.css' : '/src/style.css');
+    cssLink.href = BASE_URL + (isProduction ? '/assets/main.css' : '/src/style.css');
     cssLink.id = 'clone-element-styles';
     document.head.appendChild(cssLink);
 
@@ -43,11 +43,11 @@
     const script = document.createElement('script');
     script.type = 'module';
     script.id = 'clone-element-main-script';
-    
+
     if (isProduction) {
         // In production, load the compiled bundle
-        script.src = BASE_URL + '/assets/index.js';
-        script.onload = function() {
+        script.src = BASE_URL + '/assets/main.js';
+        script.onload = function () {
             // After loading, initialize the extractor
             if (window.CloneElementExtractor) {
                 new window.CloneElementExtractor();
