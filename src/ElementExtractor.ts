@@ -10,7 +10,7 @@ class ElementExtractor {
     currentTab: 'html' | 'css' = 'html';
 
     constructor() {
-        console.log('ElementExtractor class initialized');
+        // console.log('ElementExtractor class initialized');
         this.installWidget();
     }
 
@@ -95,7 +95,7 @@ class ElementExtractor {
     }
 
     enterSelectMode() {
-        console.log('Entering select mode');
+        // console.log('Entering select mode');
         this.isInSelectMode = true;
         this.widgetButton!.classList.add('active');
         this.widgetButton!.innerHTML = `
@@ -110,7 +110,7 @@ class ElementExtractor {
     }
 
     exitSelectMode() {
-        console.log('Exiting select mode');
+        // console.log('Exiting select mode');
         this.isInSelectMode = false;
         this.widgetButton!.classList.remove('active');
         this.widgetButton!.innerHTML = `
@@ -463,7 +463,7 @@ class ElementExtractor {
     }
 
     cleanup() {
-        console.log('ElementExtractor cleanup called');
+        // console.log('ElementExtractor cleanup called');
         if (this.widgetElement) {
             this.widgetElement.remove();
             this.widgetElement = null;

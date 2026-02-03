@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Component Extractor - Demo</title>
+    <title>Component Extractor</title>
     <style>
         * {
             margin: 0;
@@ -224,47 +224,37 @@
             <p>Drag this button to your bookmarks bar to use the Component Extractor on any website!</p>
 
             <!-- Development Bookmarklet (localhost) -->
-            <div style="margin-bottom: 20px;">
-                <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;">Development (localhost:5173):</p>
+            <div style="margin-bottom: 20px;" class="extractor-dev-button">
                 <a href="javascript:(function(){const e=document.getElementById('clone-element-widget');if(e&&e.remove(),window.CloneElementExtractor)return void new window.CloneElementExtractor;const t=document.createElement('script');t.src='http://localhost:5173/inject.js',t.id='clone-element-injector',document.head.appendChild(t)})();"
                     class="bookmarklet-link" style="font-size: 1rem; padding: 12px 24px;"
                     onclick="alert('Drag this link to your bookmarks bar!'); return false;">
                     <span class="drag-icon">⬆️</span>
-                    Component Extractor (Dev)
+                    Extractor (Dev)
                 </a>
             </div>
 
             <!-- Production Bookmarklet (GitHub Pages) -->
             <div>
-                <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;">Production (GitHub Pages) - Update
-                    username:</p>
-                <a href="javascript:(function(){const e=document.getElementById('clone-element-widget');if(e&&e.remove(),window.CloneElementExtractor)return void new window.CloneElementExtractor;const t=document.createElement('script');t.src='https://YOUR-USERNAME.github.io/clone-element/inject.js',t.id='clone-element-injector',document.head.appendChild(t)})();"
-                    class="bookmarklet-link"
-                    onclick="alert('Update YOUR-USERNAME in the URL before using! Then drag to your bookmarks bar.'); return false;">
+                <a href="javascript:(function(){const e=document.getElementById('clone-element-widget');if(e&&e.remove(),window.CloneElementExtractor)return void new window.CloneElementExtractor;const t=document.createElement('script');t.src='https://chrishow.github.io/clone-element/inject.js',t.id='clone-element-injector',document.head.appendChild(t)})();"
+                    class="bookmarklet-link" onclick="alert('Drag this button to your bookmarks bar!'); return false;">
                     <span class="drag-icon">⬆️</span>
-                    Component Extractor (Production)
+                    Extractor
                 </a>
             </div>
 
             <div class="install-steps">
                 <strong>How to install:</strong>
                 <ol>
-                    <li><strong>For Development:</strong> Use the first button above</li>
-                    <li><strong>For Production:</strong> Edit the second button's href to replace
-                        <code>YOUR-USERNAME</code> with your GitHub username, then drag it</li>
+                    <li>Drag the button to your bookmarks bar</li>
                     <li>Visit any website you want to extract components from</li>
                     <li>Click the bookmark to launch the extractor</li>
                     <li>Click again to relaunch if you've closed it</li>
                 </ol>
-                <p style="margin-top: 12px; padding: 12px; background: #fef3c7; border-radius: 6px; color: #92400e;">
-                    <strong>📝 Note:</strong> After deploying to GitHub Pages, update YOUR-USERNAME in the production
-                    bookmarklet URL.
-                </p>
             </div>
         </div>
 
         <div class="alert">
-            <div class="alert-title">🎯 How to use</div>
+            <div class="alert-title">How to use</div>
             <div class="alert-text">
                 1. Click "Select Element" in the widget<br>
                 2. Hover over any element on this page<br>
@@ -274,7 +264,7 @@
         </div>
 
         <div class="feature-box">
-            <h2>Premium Features <span class="badge">NEW</span></h2>
+            <h2>Features</h2>
             <ul class="feature-list">
                 <li>Extract HTML markup instantly</li>
                 <li>Get computed CSS styles</li>
@@ -285,7 +275,7 @@
 
         <div class="demo-grid">
             <div class="card">
-                <h3>Card Component</h3>
+                <h3>Demo Card Component</h3>
                 <p>This is a sample card component with hover effects and beautiful styling. Try extracting it!</p>
                 <a href="#" class="btn">Learn More</a>
             </div>
