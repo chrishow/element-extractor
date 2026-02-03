@@ -2,6 +2,10 @@
 
 A bookmarklet tool that lets you extract HTML markup and CSS styles from any element on any webpage.
 
+## Demo and bookmarklet
+
+The demo page [can be found here](https://chrishow.github.io/element-extractor/).
+
 ## Features
 
 - Select any element on a webpage
